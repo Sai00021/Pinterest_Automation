@@ -1,0 +1,44 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pinterest-automation",
+  "main": "src/index.ts",
+  "compatibility_date": "2024-03-20",
+  "compatibility_flags": ["nodejs_compat"],
+
+  // Schedule to run every hour. The Worker logic handles the actual daily limits and timezone targeting.
+  "triggers": {
+    "crons": ["0 * * * *"]
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pinterest_db",
+      "database_id": "REPLACE_WITH_YOUR_D1_ID",
+      "migrations_dir": "migrations"
+    }
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "R2_BUCKET",
+      "bucket_name": "pinterest-automation-images"
+    }
+  ],
+
+  "vars": {
+    "TIMEZONE": "Asia/Kolkata",
+    "POSTS_PER_DAY": "10",
+    "DRY_RUN": "true",
+    "SCHEDULE_MODE": "EVENLY_DISTRIBUTED",
+    "BRAND_NAME": "MyBrand",
+    "NICHE": "Technology",
+    "CONTENT_LANGUAGE": "en",
+    "DEFAULT_BOARD_ID": "",
+    "AI_PROVIDER": "heuristic"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+}
