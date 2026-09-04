@@ -1,0 +1,24 @@
+{
+  "name": "pinterest-automation",
+  "version": "1.0.0",
+  "description": "Production-ready Pinterest automation using Cloudflare Workers, D1, and Cron Triggers",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler default dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "db:migrate:local": "wrangler d1 migrations apply pinterest_db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply pinterest_db --remote"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240320.1",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.7",
+    "vitest": "^1.4.0",
+    "wrangler": "^3.42.0"
+  }
+}
