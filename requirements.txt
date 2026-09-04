@@ -1,8 +1,0 @@
-requests
-pydantic
-pydantic-settings
-sqlalchemy
-Pillow
-openai
-anthropic
-python-dotenv
